@@ -15,28 +15,41 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="Static/JS/task2.js"></script>
     <header id="header-index">
         <div class="bordered">
             <h1>LifeSpot — прямые трансляции с улиц</h1>
             <p>Покажем, что происходит прямо сейчас</p>
         </div>
-        
+
     </header>
+    <p class="search">
+        <input type="text" oninput="
+               let inputElements=document.getElementsByTagName('input');
+               let inputElement=inputElements[0].value;
+               console.log(inputElement);
+               let elements=document.getElementsByClassName('video-container');
+               for (i=0; i < elements.length; i++) {
+        let element = elements[i];
+        let des = element.getElementsByClassName('video-title')[0].textContent.toLowerCase();
+        if (des.includes(inputElement.toLowerCase())) {
+        element.style.display = 'inline-block';
+        }
+        else{
+        element.style.display = 'none';
+        }
+        }
+        ">
+    </p>
     <aside id="sidebar">
         <div class="navbar">
-            <p class="search">
-                <input id="search" type="search" name="q" placeholder="Поиск по сайту">
-                <input type="submit" value="Найти">
-            </p>
+
             <a href="/"><p>Все трансляции</p></a>
             <a href="/"><p>О проекте</p></a>
 
         </div>
     </aside>
-    
-    <!--<a href="https://www.youtube.com/watch?v=wCcMcaiRbhM"><button>Санкт-Петербург</button></a>
-    <a href="https://www.youtube.com/watch?v=srlpC5tmhYs&ab_channel=BryantParkNYC"><button>Нью-Йорк</button></a>
-    <a href="https://www.youtube.com/watch?v=JplMzss6_YE&ab_channel=WokiliWanders"><button>Лондон</button></a>-->
+
     <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM?si=nN_epiq7tlZsMwKj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <h3 class="video-title">Трансляция Санкт-Петербург</h3>
